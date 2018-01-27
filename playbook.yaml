@@ -1,4 +1,6 @@
   - name: Deply a web application
+    ansible_connection: ssh
+    ansible_ssh_user: root
     hosts: all
     tasks:
       - name: Install all required dependencies

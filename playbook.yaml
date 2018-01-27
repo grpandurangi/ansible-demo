@@ -1,5 +1,43 @@
   - name: Deply a web application
     hosts: web_and_db_servers
     tasks:
-      - name: ping
-        ping:
+      - name: Install all required dependencies
+        apt: name= {{ item }} state=installed
+        with_items:
+          - python
+          - python-setuptools
+          - pyhon-dev
+          - build-essentials
+          - python-pip
+
+      - name: Install MySQL
+        apt: name= {{ item }} state=installed
+        with_items:
+          -  mysql-server
+          -  mysql-client
+
+      - name: Start MySQL Server
+        service:
+          name: mysql
+          state: started
+          enabled: yes
+
+      - name: Create Application Database
+        mysqldb:  name=employee_db state=present
+
+      - name: Create Database User
+        mysql_user:
+          name: db_user
+          password: Passw0rd
+          priv: '*.*:ALL'
+          state: present
+          host: '%'
+
+      - name: Install Flask and Flash Dependency
+        pip:
+          name: {{ item }}
+        with_items:
+          - flask
+          - flask-mysql
+
+      

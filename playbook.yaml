@@ -2,4 +2,11 @@
     hosts: all
     tasks:
       - name: Install all required dependencies
-        action: apt pkg=elinks state=installed
+        action: apt pkg={{ items }} state=installed
+        with_items:
+          - python
+          - python-setuptools
+          - pyhon-dev
+          - build-essentials
+          - python-pip
+          - elinks

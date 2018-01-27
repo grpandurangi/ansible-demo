@@ -38,6 +38,17 @@
           state: present
           host: '%'
 
+      - name: MySQL commands to create table and entry
+        copy: src=mysql_entries.sql dest=/tmp/mysql_entries.sql
+
+      - name: Execute sql script
+        mysql_db:
+          name: "{{ db_name}}"
+          login_user: "{{ db_user }}"
+          login_password: "{{ db_password }}"
+          state: import
+          target: /tmp/mysql_entries.sql
+
       - name: Install Flask and Flask Dependency
         action: >
           pip name={{ item }} state=present

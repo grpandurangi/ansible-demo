@@ -1,5 +1,5 @@
   - name: Deply a web application
-    hosts: web_and_db_servers
+    hosts: all
     tasks:
       - name: Install all required dependencies
         apt: name= {{ item }} state=installed

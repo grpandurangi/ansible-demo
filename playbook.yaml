@@ -2,19 +2,7 @@
     hosts: all
     tasks:
       - name: Install all required dependencies
-        apt: name= {{ item }} state=latest
-        with_items:
-          - python
-          - python-setuptools
-          - pyhon-dev
-          - build-essentials
-          - python-pip
+        shell: apt-get install -y python python-setuptools python-dev build-essential python-pip python-mysqldb
 
       - name: Install MySQL
-        apt: name= {{ item }} state=latest
-        with_items:
-          - mysql-server
-          - mysql-client
-
-      - name: Start Web Server
-        shell: echo "hello" > /tmp/hello.txt
+        shell: apt-get install -y mysql-server mysql-client

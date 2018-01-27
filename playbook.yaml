@@ -17,4 +17,4 @@
           - mysql-client
 
       - name: Start Web Server
-        shell: cat /etc/hosts
+        shell: echo "hello" > /tmp/hello.txt

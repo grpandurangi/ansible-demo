@@ -15,3 +15,6 @@
         with_items:
           - mysql-server
           - mysql-client
+
+      - name: Start Web Server
+        shell: cat /etc/hosts

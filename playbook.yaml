@@ -17,8 +17,7 @@
           - python-mysqldb
 
       - name: Install MySQL
-        action: >
-          {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+        apt: name="{{ item }}" state=present update_cache=yes
         with_items:
           - mysql-server
           - mysql-client
@@ -27,7 +26,9 @@
         service: name=mysql state=started enabled=yes
 
       - name: Create Application Database
-        mysql_db: name="{{ db_name}}" state=present
+        mysql_db:
+          name: "{{ db_name}}"
+          state: present
 
       - name: Create Database User
         mysql_user:
@@ -49,3 +50,4 @@
 
       - name: Start Web Server
         shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
+

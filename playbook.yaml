@@ -1,7 +1,7 @@
   - name: Deply a web application
+    hosts: all
     ansible_connection: ssh
     ansible_ssh_user: root
-    hosts: all
     tasks:
       - name: Install all required dependencies
         apt: name= {{ item }} state=installed

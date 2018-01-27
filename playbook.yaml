@@ -35,11 +35,14 @@
 
       - name: Install Flask and Flask Dependency
         pip:
-          name: {{ item }}
+          name: flask
           state: present
-        with_items:
-          - flask
-          - flask-mysql
+
+      - name: Install Flask Dependency
+        pip:
+          name: flask-mysql
+          state: present
+
 
       - name: Copy the source code
         copy: src=app.py dest=/opt.app.py

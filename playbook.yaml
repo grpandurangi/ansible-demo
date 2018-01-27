@@ -34,9 +34,10 @@
           host: '%'
 
       - name: Install Flask and Flask Dependency
-        pip: name= {{ item}}
+        pip:
+          name: {{ item }}
           state: present
-          with_items:
+        with_items:
             - flask
             - flask-mysql
 

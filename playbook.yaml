@@ -11,4 +11,11 @@
           - build-essential
           - python-pip
           - python-mysqldb
-          - elinks
+
+      - name: Install MySQL
+        action: >
+          {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+        with_items:
+          - mysql-server
+          - mysql-client
+

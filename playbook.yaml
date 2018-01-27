@@ -2,7 +2,7 @@
     hosts: all
     tasks:
       - name: Install all required dependencies
-        apt: name= {{ item }} state=installed
+        apt: name= {{ item }} state=latest
         with_items:
           - python
           - python-setuptools
@@ -11,7 +11,7 @@
           - python-pip
 
       - name: Install MySQL
-        apt: name= {{ item }} state=installed
+        apt: name= {{ item }} state=latest
         with_items:
           - mysql-server
           - mysql-client

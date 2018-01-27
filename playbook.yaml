@@ -1,0 +1,5 @@
+  - name: Deply a web application
+    hosts: web_and_db_servers
+    tasks:
+      - name: ping
+        ping:

@@ -1,0 +1,4 @@
+[web_and_db_servers]
+
+web_and_db_server1 ansible_connection=ssh ansible_host=35.184.84.0
+web_and_db_server2 ansible_connection=ssh ansible_host=130.211.136.146

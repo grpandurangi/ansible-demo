@@ -41,7 +41,7 @@
           - flask-mysql
 
       - name: Copy the source code
-        copy: src=app.py dest=/opt.app.py
+        copy: src=app.py dest=/opt/app.py
 
       - name: Start Web Server
         shell: FLASK_APP=app.py nohup flask run --host=0.0.0.0 &

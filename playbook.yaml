@@ -40,7 +40,6 @@
           - flask
           - flask-mysql
 
-
       - name: Copy the source code
         copy: src=app.py dest=/opt.app.py
 

@@ -23,7 +23,7 @@
           enabled: yes
 
       - name: Create Application Database
-        mysql_db:  name=employee_db state=present
+        mysql_db: name=employee_db state=present
 
       - name: Create Database User
         mysql_user:
@@ -34,8 +34,7 @@
           host: '%'
 
       - name: Install Flask and Flask Dependency
-        pip:
-          name: {{ item}}
+        pip: name= {{ item}}
           state: present
           with_items:
             - flask

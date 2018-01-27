@@ -4,9 +4,4 @@
       - name: Install all required dependencies
         apt: name= {{ item }} state=latest
         with_items:
-          - python
-          - python-setuptools
-          - pyhon-dev
-          - build-essentials
-          - python-pip
           - elinks

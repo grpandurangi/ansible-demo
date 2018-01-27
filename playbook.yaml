@@ -2,11 +2,13 @@
     hosts: all
     tasks:
       - name: Install all required dependencies
-        action: apt pkg={{ items }} state=installed
+        action: >
+          {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
         with_items:
           - python
           - python-setuptools
-          - pyhon-dev
-          - build-essentials
+          - python-dev
+          - build-essential
           - python-pip
+          - python-mysqldb
           - elinks

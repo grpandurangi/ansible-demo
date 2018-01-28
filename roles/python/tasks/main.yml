@@ -1,4 +1,4 @@
-       - name: Install all required dependencies
+      - name: Install all required dependencies
         action: >
           {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
         with_items:

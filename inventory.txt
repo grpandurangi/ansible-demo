@@ -1,5 +1,6 @@
 [web_and_db_servers]
 
-#bash
+# hash
+# new commit from another system
 web_and_db_server1 ansible_connection=ssh ansible_ssh_user=root ansible_host=35.226.113.49
 web_and_db_server2 ansible_connection=ssh ansible_ssh_user=root ansible_host=104.154.157.196
